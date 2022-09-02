@@ -24,5 +24,7 @@ jobs:
       # See https://pnpm.io/using-changesets
       - name: Setup npmrc for pnpm publish
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+      - name: Set HTTPS registry
+        run: npm config set registry https://registry.npmjs.org/
       - name: pnpm publish
         run: pnpm publish -r --no-git-checks
